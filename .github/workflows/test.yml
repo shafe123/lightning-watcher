@@ -35,7 +35,7 @@ jobs:
         uses: pre-commit/action@v3.0.1
       - name: Test with pytest
         run: |
-          pytest --junitxml=junit/${{matrix.python-version}}/test-results.xml --cov=lightningwatcher --cov-report=json:junit/${{ matrix.python-version }}/coverage.json"
+          pytest --junitxml=junit/${{matrix.python-version}}/test-results.xml --cov=lightningwatcher --cov-report=json:junit/${{ matrix.python-version }}/coverage.json
       - name: Upload pytest test results
         uses: actions/upload-artifact@v4
         with:
