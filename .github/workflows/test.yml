@@ -35,10 +35,10 @@ jobs:
         uses: pre-commit/action@v3.0.1
       - name: Test with pytest
         run: |
-          pytest --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+          pytest --junitxml=junit/${{matrix.python-version}}/test-results.xml --cov=lightningwatcher --cov-report=json:junit/${{ matrix.python-version }}/coverage.json"
       - name: Upload pytest test results
         uses: actions/upload-artifact@v4
         with:
           name: pytest-results${{ matrix.python-version }}
-          path: junit/test-results-${{ matrix.python-version }}.xml
+          path: junit/${{ matrix.python-version }}/
         if: ${{ always() }}
