@@ -17,9 +17,6 @@ jobs:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
 
-    env:
-      test_result_path: junit/results_${{ matrix.python-version }}.xml
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
@@ -39,10 +36,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest --junitxml=$test_result_path
+        pytest --junitxml=junit/test-results-${{ matrix.python-version }}.xml
     - name: Upload pytest test results
       uses: actions/upload-artifact@v4
       with:
         name: pytest-results${{ matrix.python-version }}
-        path: junit/test-results-$test_result_path
+        path: junit/test-results-${{ matrix.python-version }}.xml
       if: ${{ always() }}
