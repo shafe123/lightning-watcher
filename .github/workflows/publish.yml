@@ -43,3 +43,5 @@ jobs:
           path: dist/${{ matrix.python-version }}/
       - name: Publish release distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/${{ matrix.python-version }}/
