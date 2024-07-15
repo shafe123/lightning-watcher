@@ -1,0 +1,3 @@
+google-cloud-storage
+matplotlib
+netCDF4

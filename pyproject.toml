@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lightning-watcher"
+version = "0.0.1"
+authors = [
+  { name="Ethan Shafer", email="ethan.h.shafer@gmail.com" },
+]
+description = "Uses GOES data to monitor lightning strikes within a set radius and provide notifications."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: The Unlicense",
+    "Operating System :: OS Independent",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+addopts = "--junitxml=junit/test-results --cov=lightningwatcher --cov-report=term-missing --cov-report=json:junit/coverage.json"
+
+[project.urls]
+Homepage = "https://github.com/shafe123/lightning-watcher"
+Issues = "https://github.com/shafe123/lightning-watcher/issues"
