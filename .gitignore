@@ -1,5 +1,6 @@
 # custom ignores
 *junit*
+*.nc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
